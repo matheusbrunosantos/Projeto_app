@@ -1,30 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import {View, Text, Image, ScrollView, FlatList} from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import getNoticias from '../../api/noticias';
 import estilo from './estilo';
 
 
-const Feed = () => {
+const Feed = ({navigation}) => {
+    const [noticias, setNoticias] = useState('')
+
+    useEffect(() => {
+        getNoticias(setNoticias)
+    }, [])
+
     return (
+        <ScrollView>
         <View>
         <View style={estilo.container}>
-            <View style={estilo.card}>
-                <View style={estilo.textos}>
-                    <Text style={estilo.texto}> News of The World </Text>
-                    <Text> É um fato conhecido de todos que um leitor se "Conteúdo aqui, 
-                        conteúdo aqui", fazendo com que ele tenha uma aparência similar 
-                        a de um texto legível. Muitos softwares de publicação e editores 
-                        de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão.</Text>
-                        <Text style={estilo.data}>Data de Publicação</Text>   
-                </View>
-                <View>
-                    <Image
-                    source={require('../../../assets/Images/download.png')}
-                    style={estilo.imagem}
-                    />
-                </View>
-            </View>
+            <FlatList 
+                data={noticias}
+                keyExtractor={(item, index) => index.toString() }
+                renderItem={({item}) => (
+                    <TouchableOpacity
+                    onPress={() => navigation.navigate('Noticias', {Noticias})}>
+                         <View style={estilo.card}>
+                        <View style={estilo.imagem}>
+                            <Image
+                            source={item.urlToImage}
+                            style={estilo.imagem}
+                            />
+                        </View>
+                        <View style={estilo.textos}>
+                            <Text> <strong> {item.title} </strong></Text>      
+                        </View>
+                        <View style={estilo.descricao}>
+                        <Text> {item.description}</Text>
+                        </View>
+                    </View>
+                    </TouchableOpacity>
+                   
+                )}
+            />
         </View>
+
         </View>
+        </ScrollView>
     )
 }
 

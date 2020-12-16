@@ -19,12 +19,14 @@ const estilo = StyleSheet.create({
         minHeight: alturaCard,
         borderColor: '#cccccc',
         borderRadius: 7,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#D3D3D3',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         marginTop: 12,
         marginBottom: 20,
-        flexDirection: "row"
+        //flexDirection: "row",
+        flexWrap: 'wrap',
+        border: 1
     },
     textos: {
         flex: 1,
@@ -32,13 +34,17 @@ const estilo = StyleSheet.create({
         margin: 8
     },
     imagem: {
-        width: 180,
-        height: 280,
-        margin: 10
+       width: 360,
+       height: 180,
+       borderRadius: 7
     },
     data: {
         fontWeight: 'bold',
         margin: 5
+    },
+    descricao: {
+        textAlign: 'left',
+        margin: 8
     }
 
 })

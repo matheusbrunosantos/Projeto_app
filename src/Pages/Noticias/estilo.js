@@ -25,7 +25,12 @@ const estilo = StyleSheet.create({
         margin: 10
     },
     descricao: {
-        textAlign: 'right'
+        textAlign: 'left',
+        justifyContent: 'flex-start',
+        fontWeight: 'bold'
+    },
+    publicacao: {
+        justifyContent: 'center'
     }
 
 })

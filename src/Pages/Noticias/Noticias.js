@@ -4,6 +4,7 @@ import estilo from './estilo';
 
 const Noticias = () => {
     return (
+        <ScrollView>
         <View>
             <View style={estilo.container}>
                 <View style={estilo.textos}>
@@ -12,8 +13,13 @@ const Noticias = () => {
                         a de um texto legível. Muitos softwares de publicação e editores 
                         de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão.</strong></Text>
                 </View>
+
                 <View style={estilo.descricao}>
                     <Text>Descrição da Postagem</Text>
+                </View>
+
+                <View>
+                    <Text>Autor da Postagem</Text>
                 </View>
                 <View>
                     <Image
@@ -21,9 +27,16 @@ const Noticias = () => {
                     style={estilo.imagem}
                     />
                 </View>
+                <View style={estilo.publicacao}>
+                    <Text>Texto da Publicação</Text>
+                </View>
         </View>
         </View>
+        </ScrollView>
     )
 }
 
 export default Noticias;
+
+/* 78351fd5498445c9ad0063abdf2ff83e *///
+
