@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {View, Text, Image, ScrollView, FlatList, TouchableOpacity} from 'react-native'
 import getNoticias from '../../api/noticias';
 import estilo from './estilo';
-import Noticias from '../Noticias'
+import Noticia from '../Noticia'
 
 
 const Feed = ({navigation}) => {
@@ -21,7 +21,7 @@ const Feed = ({navigation}) => {
                 keyExtractor={(item, index) => index.toString() }
                 renderItem={({item}) => (
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('Noticias', {item})}>
+                    onPress={() => navigation.navigate('Noticia', {item})}>
                          <View style={estilo.card}>
                         <View style={estilo.imagem}>
                             <Image

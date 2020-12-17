@@ -3,22 +3,18 @@ import {View, Text, Image, ScrollView, FlatList, TouchableOpacity} from 'react-n
 import getNoticias from '../../api/noticias';
 import estilo from './estilo';
 
-const Noticias = ({route}) => {
-    const Qualquer = route.params.item
+const Noticia = ({route}) => {
+    const item = route.params.item
     /* const [noticias, setNoticias] = useState('')
 
     useEffect(() => {
         getNoticias(setNoticias)
     }, [])
  */
-    console.log(Qualquer)
+    console.log(item)
     return (
         <ScrollView style={{backgroundColor: 'white'}}>
-            <FlatList 
-                data={Qualquer}
-                keyExtractor={(item, index) => index.toString() }
-                renderItem={({item}) => {
-                    return(
+            
                         <View style={estilo.container}>
                             <View>
                                     <Text style={estilo.textos}> <strong> {item.title} </strong></Text>      
@@ -51,17 +47,13 @@ const Noticias = ({route}) => {
                                 }}
                                 />      
                         </View>        
-
-                    )
-                }}
-            />
             
         </ScrollView>
     )
 }
 
 
-export default Noticias;
+export default Noticia;
 
 /* 78351fd5498445c9ad0063abdf2ff83e *///
 

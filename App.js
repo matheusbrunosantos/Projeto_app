@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {Login} from './src/Pages/Login'
 import {Feed} from './src/Pages/Feed'
 import {Inicio} from './src/Pages/Inicio'
-import {Noticias} from './src/Pages/Noticias'
+import {Noticia} from './src/Pages/Noticia'
 
 const Navegacao = createStackNavigator();
 
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Navegacao.Navigator 
-        initialRouteName="Inicio"
+        initialRouteName="Login"
       >
         <Navegacao.Screen 
           name="Login" 
@@ -28,7 +28,7 @@ export default function App() {
         />
         <Navegacao.Screen name="Inicio" component={Inicio} />
         <Navegacao.Screen name="Feed" component={Feed} />
-        <Navegacao.Screen name="Noticias" component={Noticias} />
+        <Navegacao.Screen name="Noticia" component={Noticia} />
       </Navegacao.Navigator>
     </NavigationContainer> 
   );

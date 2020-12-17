@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Feather'
 
 import { Feed } from '../Feed/';
-import { Noticias } from '../Noticias/';
+import { Noticia } from '../Noticia';
 
 const NavegacaoTabs = createBottomTabNavigator();
 
