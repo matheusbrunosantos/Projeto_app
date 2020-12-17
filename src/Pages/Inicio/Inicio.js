@@ -20,9 +20,6 @@ const Inicio = ({route, navigation}) => {
                   case 'Feed':
                   iconName = 'home';
                   break;
-                  case 'Noticias':
-                  iconName = 'mail';
-                  break;
                 default:
                   iconName = 'circle';
                   break;
@@ -38,7 +35,6 @@ const Inicio = ({route, navigation}) => {
           }}  
         >  
             <NavegacaoTabs.Screen name="Feed" component={Feed} navigation={navigation} options={{ title: 'Página de feed' }} />
-            <NavegacaoTabs.Screen name="Noticias" component={Noticias} options={{ title: 'Noticias' }}/>
         </NavegacaoTabs.Navigator>
     )
 }

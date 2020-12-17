@@ -1,40 +1,65 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, Image, ScrollView, FlatList} from 'react-native'
+import {View, Text, Image, ScrollView, FlatList, TouchableOpacity} from 'react-native'
+import getNoticias from '../../api/noticias';
 import estilo from './estilo';
 
-const Noticias = () => {
+const Noticias = ({route}) => {
+    const Qualquer = route.params.item
+    /* const [noticias, setNoticias] = useState('')
+
+    useEffect(() => {
+        getNoticias(setNoticias)
+    }, [])
+ */
+    console.log(Qualquer)
     return (
-        <ScrollView>
-        <View>
-            <View style={estilo.container}>
-                <View style={estilo.textos}>
-                    <Text><strong> É um fato conhecido de todos que um leitor se "Conteúdo aqui, 
-                        conteúdo aqui", fazendo com que ele tenha uma aparência similar 
-                        a de um texto legível. Muitos softwares de publicação e editores 
-                        de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão.</strong></Text>
-                </View>
+        <ScrollView style={{backgroundColor: 'white'}}>
+            <FlatList 
+                data={Qualquer}
+                keyExtractor={(item, index) => index.toString() }
+                renderItem={({item}) => {
+                    return(
+                        <View style={estilo.container}>
+                            <View>
+                                    <Text style={estilo.textos}> <strong> {item.title} </strong></Text>      
+                            </View>
+                            <View>
+                                    <Text style={estilo.descricao}> {item.description}</Text>
+                            </View>
+                            <View>
+                                    <Text style={estilo.autor}> {item.author}</Text>
+                                </View>
+                                <View>
+                                    <Text style={estilo.data}> {item.publishedAt}</Text>
+                                </View>
+                                <View>
+                                    <Image
+                                        source={item.urlToImage}
+                                        style={estilo.imagem}
+                                    />
+                                </View>
+                                <View>
+                                    <Text style={estilo.content}> {item.content}</Text>
+                                </View>
+                                <View>
+                                    <Text style={estilo.url}> {item.url}</Text>
+                                </View>
+                                <View
+                                    style={{
+                                    borderBottomColor: 'black',
+                                    borderBottomWidth: 0.2,
+                                }}
+                                />      
+                        </View>        
 
-                <View style={estilo.descricao}>
-                    <Text>Descrição da Postagem</Text>
-                </View>
-
-                <View>
-                    <Text>Autor da Postagem</Text>
-                </View>
-                <View>
-                    <Image
-                    source={require('../../../assets/Images/download.png')}
-                    style={estilo.imagem}
-                    />
-                </View>
-                <View style={estilo.publicacao}>
-                    <Text>Texto da Publicação</Text>
-                </View>
-        </View>
-        </View>
+                    )
+                }}
+            />
+            
         </ScrollView>
     )
 }
+
 
 export default Noticias;
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, Image, ScrollView, FlatList} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {View, Text, Image, ScrollView, FlatList, TouchableOpacity} from 'react-native'
 import getNoticias from '../../api/noticias';
 import estilo from './estilo';
+import Noticias from '../Noticias'
 
 
 const Feed = ({navigation}) => {
@@ -21,7 +21,7 @@ const Feed = ({navigation}) => {
                 keyExtractor={(item, index) => index.toString() }
                 renderItem={({item}) => (
                     <TouchableOpacity
-                    onPress={() => navigation.navigate('Noticias', {Noticias})}>
+                    onPress={() => navigation.navigate('Noticias', {item})}>
                          <View style={estilo.card}>
                         <View style={estilo.imagem}>
                             <Image
